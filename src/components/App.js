@@ -1,9 +1,12 @@
 import React from 'react'
-import UserContainer from '../containers/userContainer'
+import UserListContainer from '../containers/userListContainer'
+import CurrentUserContainer from '../containers/CurrentUserContainer'
 
 const App = () => (
   <div>
-    <UserContainer/>
+    <UserListContainer/>
+    <CurrentUserContainer />
+
   </div>
 )
 

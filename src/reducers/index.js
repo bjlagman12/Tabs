@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
-import productReducer from './productReducer'
+import listReducer from './listReducer'
+import loginReducer from './loginReducer'
 import userReducer from './userReducer'
 
 let allReducers = combineReducers({
-  products: productReducer,
-  user: userReducer
+  userList: listReducer,
+  user: loginReducer,
+  pay: userReducer
+
 })
 
 export default allReducers

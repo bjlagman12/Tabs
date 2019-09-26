@@ -1,10 +1,9 @@
-export const UPDATE_USER = 'updateUser';
+export const PAY_USER = 'updateUser';
 
 export const updateUser = newUser => {
+  console.log(newUser, 'newuser')
   return {
-    type: UPDATE_USER,
-    payload: {
-      user: newUser
-    }
+    type: PAY_USER,
+    user: newUser
   };
 };

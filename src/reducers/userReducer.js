@@ -1,9 +1,9 @@
-import { UPDATE_USER } from '../actions/index'
+import { PAY_USER } from '../actions/index'
 
 const userReducer = (state = '', action) => {
   switch (action.type) {
-    case UPDATE_USER:
-      return action.payload.user
+    case PAY_USER:
+      return action.user
     default:
       return state
   }

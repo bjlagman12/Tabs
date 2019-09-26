@@ -1,9 +1,11 @@
 import { createStore } from 'redux';
 import allReducer from '../reducers/index.js';
+import sampleData from '../../data/sampleData'
 
 const initialState = {
-  products: [{ name: 'Brian' }, { name: 'Nicole' }],
-  user: 'Michael'
+  userList: sampleData,
+  user: sampleData[0],
+  pay: sampleData[1]
 };
 
 const store = createStore(
