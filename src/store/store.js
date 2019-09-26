@@ -1,16 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers/index';
+import { createStore } from 'redux';
+import allReducer from '../reducers/index.js';
 
-
-// var initialState = {
-//   currentVideo: exampleData[0],
-//   videoList: exampleData
-// };
+const initialState = {
+  products: [{ name: 'Brian' }, { name: 'Nicole' }],
+  user: 'Michael'
+};
 
 const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk)
-)
+  allReducer,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;

@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
+import productReducer from './productReducer'
+import userReducer from './userReducer'
 
-export default combineReducers({
-  todos,
-  visibilityFilter
+let allReducers = combineReducers({
+  products: productReducer,
+  user: userReducer
 })
+
+export default allReducers
+
