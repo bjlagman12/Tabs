@@ -1,27 +1,10 @@
 import React from 'react'
+import UserContainer from '../containers/userContainer'
 
-import { connect } from 'react-redux'
-
-import { updateUser } from '../actions/index'
-
-const App = ( {onUpdateUser} ) => (
+const App = () => (
   <div>
-    <div onClick={() => onUpdateUser('zach')}>hi</div>
+    <UserContainer/>
   </div>
 )
 
-const mapStateToProps = state => ({
-  products: state.products,
-  user: state.user
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onUpdateUser: (user) => dispatch(updateUser(user))
-  }
-}
-
-
-let appContainer = connect(mapStateToProps, mapDispatchToProps)(App)
-
-export default appContainer
+export default App
