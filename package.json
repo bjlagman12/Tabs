@@ -24,7 +24,8 @@
     "nodemon": "^1.19.2",
     "path": "^0.12.7",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
