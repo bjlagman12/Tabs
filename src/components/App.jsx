@@ -7,12 +7,17 @@ class App extends React.Component {
     this.state = {
       apple: "bannana"
     }
+    this.onPress = this.onPress.bind(this)
+  }
+  onPress() {
+    console.log('works')
   }
 
   render() {
     return (
       <Divbody>
         <div>hello {this.state.apple}</div>
+        <button onClick={() => this.onPress()}>submit</button>
       </Divbody>
     )
   }
