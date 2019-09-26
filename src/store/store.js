@@ -5,7 +5,8 @@ import sampleData from '../../data/sampleData'
 const initialState = {
   userList: sampleData,
   user: sampleData[0],
-  pay: sampleData[1]
+  pay: sampleData[1],
+  amount: 0
 };
 
 const store = createStore(

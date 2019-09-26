@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const CurrentUser = ({ currentUser }) => (
   <CurrentUserSum>
     <div>Hello {currentUser.name}</div>
-    <div>You have {currentUser.money} left</div>
+    <div>You have ${currentUser.money} left</div>
   </CurrentUserSum>
 );
 

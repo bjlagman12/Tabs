@@ -768,11 +768,11 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /*!******************************!*\
   !*** ./src/actions/index.js ***!
   \******************************/
-/*! exports provided: PAY_USER, updateUser */
+/*! exports provided: PAY_USER, updateUser, AMOUNT_USER, updateAmount, TRANSFER_AMOUNT, transferAmount */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"PAY_USER\", function() { return PAY_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateUser\", function() { return updateUser; });\nvar PAY_USER = 'updateUser';\nvar updateUser = function updateUser(newUser) {\n  console.log(newUser, 'newuser');\n  return {\n    type: PAY_USER,\n    user: newUser\n  };\n};\n\n//# sourceURL=webpack:///./src/actions/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"PAY_USER\", function() { return PAY_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateUser\", function() { return updateUser; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"AMOUNT_USER\", function() { return AMOUNT_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateAmount\", function() { return updateAmount; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TRANSFER_AMOUNT\", function() { return TRANSFER_AMOUNT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"transferAmount\", function() { return transferAmount; });\nvar PAY_USER = 'payUser';\nvar updateUser = function updateUser(newUser) {\n  return {\n    type: PAY_USER,\n    user: newUser\n  };\n};\nvar AMOUNT_USER = 'changeAmount';\nvar updateAmount = function updateAmount(num) {\n  return {\n    type: AMOUNT_USER,\n    amount: num\n  };\n};\nvar TRANSFER_AMOUNT = 'changeAmount';\nvar transferAmount = function transferAmount(funds) {\n  console.log(funds, 'this is the amounts from fund');\n  return {\n    type: TRANSFER_AMOUNT,\n    amount: funds\n  };\n};\n\n//# sourceURL=webpack:///./src/actions/index.js?");
 
 /***/ }),
 
@@ -784,7 +784,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _containers_userListContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../containers/userListContainer */ \"./src/containers/userListContainer.js\");\n/* harmony import */ var _containers_CurrentUserContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../containers/CurrentUserContainer */ \"./src/containers/CurrentUserContainer.js\");\n\n\n\n\nvar App = function App() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_userListContainer__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_CurrentUserContainer__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./src/components/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _containers_userListContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../containers/userListContainer */ \"./src/containers/userListContainer.js\");\n/* harmony import */ var _containers_CurrentUserContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../containers/CurrentUserContainer */ \"./src/containers/CurrentUserContainer.js\");\n/* harmony import */ var _containers_payUserContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/payUserContainer */ \"./src/containers/payUserContainer.js\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nfunction _templateObject() {\n  var data = _taggedTemplateLiteral([\"\\n  display: flex;\\n  justify-content: center\\n\"]);\n\n  _templateObject = function _templateObject() {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n\n\n\n\n\nvar App = function App() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_userListContainer__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_CurrentUserContainer__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_payUserContainer__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null)));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\nvar Body = styled_components__WEBPACK_IMPORTED_MODULE_4__[\"default\"].div(_templateObject());\n\n//# sourceURL=webpack:///./src/components/App.js?");
 
 /***/ }),
 
@@ -796,7 +796,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nfunction _templateObject() {\n  var data = _taggedTemplateLiteral([\"\\n  background-color: beige;\\n  border: solid black 2px;\\n  padding: 10px\\n\"]);\n\n  _templateObject = function _templateObject() {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n\n\nvar CurrentUser = function CurrentUser(_ref) {\n  var currentUser = _ref.currentUser;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CurrentUserSum, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"Hello \", currentUser.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"You have \", currentUser.money, \" left\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CurrentUser);\nvar CurrentUserSum = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"default\"].div(_templateObject());\n\n//# sourceURL=webpack:///./src/components/CurrentUser.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nfunction _templateObject() {\n  var data = _taggedTemplateLiteral([\"\\n  background-color: beige;\\n  border: solid black 2px;\\n  padding: 10px\\n\"]);\n\n  _templateObject = function _templateObject() {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n\n\nvar CurrentUser = function CurrentUser(_ref) {\n  var currentUser = _ref.currentUser;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CurrentUserSum, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"Hello \", currentUser.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"You have $\", currentUser.money, \" left\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CurrentUser);\nvar CurrentUserSum = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"default\"].div(_templateObject());\n\n//# sourceURL=webpack:///./src/components/CurrentUser.js?");
 
 /***/ }),
 
@@ -824,6 +824,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./src/components/payUser.js":
+/*!***********************************!*\
+  !*** ./src/components/payUser.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n\n\n\nvar payUser = function payUser(_ref) {\n  var pay = _ref.pay,\n      amount = _ref.amount,\n      amountInput = _ref.amountInput,\n      sendAmount = _ref.sendAmount;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"Pay \", pay.name, \" $\", amount), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"input\", {\n    type: \"number\",\n    onChange: function onChange(e) {\n      return amountInput(e.target.value);\n    }\n  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"input\", {\n    type: \"submit\",\n    value: \"submit\",\n    onClick: function onClick() {\n      return sendAmount(amount);\n    }\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (payUser); // class payUser extends React.Component {\n//   constructor(props){\n//     super(props)\n//     this.handleSubmit = this.handleSubmit.bind(this)\n//   }\n//   handleSubmit(){\n//     console.log('test')\n//   }\n//   render(){\n//     return(\n//       <div>\n//       <div>\n//         Pay {this.props.pay.name} ${this.props.amount}\n//       </div>\n//       <input type='number' \n//         onChange={e => this.props.amountInput(e.target.value)}\n//       />\n//       <input\n//         type='submit'\n//         value='submit'\n//         onClick={() => this.handleSubmit()}\n//       />\n//     </div>\n//     )\n//   }\n// }\n// export default payUser;\n\n//# sourceURL=webpack:///./src/components/payUser.js?");
+
+/***/ }),
+
 /***/ "./src/containers/CurrentUserContainer.js":
 /*!************************************************!*\
   !*** ./src/containers/CurrentUserContainer.js ***!
@@ -833,6 +845,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _components_CurrentUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CurrentUser */ \"./src/components/CurrentUser.js\");\n\n\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    currentUser: state.user\n  };\n};\n\nvar currentUserContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__[\"connect\"])(mapStateToProps)(_components_CurrentUser__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n/* harmony default export */ __webpack_exports__[\"default\"] = (currentUserContainer);\n\n//# sourceURL=webpack:///./src/containers/CurrentUserContainer.js?");
+
+/***/ }),
+
+/***/ "./src/containers/payUserContainer.js":
+/*!********************************************!*\
+  !*** ./src/containers/payUserContainer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_payUser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/payUser */ \"./src/components/payUser.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index */ \"./src/actions/index.js\");\n\n\n\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    pay: state.pay,\n    amount: state.amount\n  };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    amountInput: function amountInput(num) {\n      return dispatch(Object(_actions_index__WEBPACK_IMPORTED_MODULE_2__[\"updateAmount\"])(num));\n    },\n    sendAmount: function sendAmount(num) {\n      return dispatch(Object(_actions_index__WEBPACK_IMPORTED_MODULE_2__[\"transferAmount\"])(num));\n    }\n  };\n};\n\nvar userListContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps, mapDispatchToProps)(_components_payUser__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n/* harmony default export */ __webpack_exports__[\"default\"] = (userListContainer);\n\n//# sourceURL=webpack:///./src/containers/payUserContainer.js?");
 
 /***/ }),
 
@@ -860,6 +884,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./src/reducers/amountReducer.js":
+/*!***************************************!*\
+  !*** ./src/reducers/amountReducer.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index */ \"./src/actions/index.js\");\n\n\nvar amountReducer = function amountReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case _actions_index__WEBPACK_IMPORTED_MODULE_0__[\"AMOUNT_USER\"]:\n      return action.amount;\n\n    default:\n      return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (amountReducer);\n\n//# sourceURL=webpack:///./src/reducers/amountReducer.js?");
+
+/***/ }),
+
 /***/ "./src/reducers/index.js":
 /*!*******************************!*\
   !*** ./src/reducers/index.js ***!
@@ -868,7 +904,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _listReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listReducer */ \"./src/reducers/listReducer.js\");\n/* harmony import */ var _loginReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loginReducer */ \"./src/reducers/loginReducer.js\");\n/* harmony import */ var _userReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./userReducer */ \"./src/reducers/userReducer.js\");\n\n\n\n\nvar allReducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  userList: _listReducer__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  user: _loginReducer__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  pay: _userReducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (allReducers);\n\n//# sourceURL=webpack:///./src/reducers/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _listReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listReducer */ \"./src/reducers/listReducer.js\");\n/* harmony import */ var _loginReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loginReducer */ \"./src/reducers/loginReducer.js\");\n/* harmony import */ var _userReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./userReducer */ \"./src/reducers/userReducer.js\");\n/* harmony import */ var _amountReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./amountReducer */ \"./src/reducers/amountReducer.js\");\n\n\n\n\n\nvar allReducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  userList: _listReducer__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  user: _loginReducer__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  pay: _userReducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n  amount: _amountReducer__WEBPACK_IMPORTED_MODULE_4__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (allReducers);\n\n//# sourceURL=webpack:///./src/reducers/index.js?");
 
 /***/ }),
 
@@ -916,7 +952,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _act
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/index.js */ \"./src/reducers/index.js\");\n/* harmony import */ var _data_sampleData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/sampleData */ \"./data/sampleData.js\");\n\n\n\nvar initialState = {\n  userList: _data_sampleData__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  user: _data_sampleData__WEBPACK_IMPORTED_MODULE_2__[\"default\"][0],\n  pay: _data_sampleData__WEBPACK_IMPORTED_MODULE_2__[\"default\"][1]\n};\nvar store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers_index_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());\n/* harmony default export */ __webpack_exports__[\"default\"] = (store);\n\n//# sourceURL=webpack:///./src/store/store.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/index.js */ \"./src/reducers/index.js\");\n/* harmony import */ var _data_sampleData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/sampleData */ \"./data/sampleData.js\");\n\n\n\nvar initialState = {\n  userList: _data_sampleData__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  user: _data_sampleData__WEBPACK_IMPORTED_MODULE_2__[\"default\"][0],\n  pay: _data_sampleData__WEBPACK_IMPORTED_MODULE_2__[\"default\"][1],\n  amount: 0\n};\nvar store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers_index_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());\n/* harmony default export */ __webpack_exports__[\"default\"] = (store);\n\n//# sourceURL=webpack:///./src/store/store.js?");
 
 /***/ })
 
