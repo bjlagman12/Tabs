@@ -17,12 +17,25 @@ export const updateAmount = num => {
 };
 
 export const TRANSFER_AMOUNT = 'changeAmount'
+import sendFunds from '../apiRoute/api'
 
 export const transferAmount = funds => {
+  let obj = {
+    "money": funds
+  }
+  console.log('1', funds)
+  return () => {
+    sendFunds( obj, (data) => {
+      // return { type: 'VIDEO' };
+    });
+  }; 
+}
 
-  console.log(funds, 'this is the amounts from fund')
-  return {
-    type: TRANSFER_AMOUNT,
-    amount: funds
-  };
-};
+
+
+//   console.log(funds, 'this is the amounts from fund')
+//   return {
+//     type: TRANSFER_AMOUNT,
+//     amount: funds
+//   };
+// };
