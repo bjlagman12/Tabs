@@ -11,7 +11,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    payUser: (user) => dispatch(updateUser(user))
+    payUser: (user) => {
+      console.log('test')
+      dispatch(updateUser(user))
+    }
   }
 }
 

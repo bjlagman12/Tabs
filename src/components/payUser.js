@@ -30,6 +30,7 @@ const PayUser = styled.div`
   font-size: 30px;
   font-weight: 600;
   color: aliceblue;
+  box-shadow: 3px 3px 16px 1px #00000078;
 `;
 
 const MoneyInput = styled.input`
