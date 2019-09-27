@@ -10,10 +10,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('0')
   return {
     amountInput: (num) => dispatch(updateAmount(num)),
-    sendAmount: (num) => dispatch(transferAmount(num))
+    sendAmount: (user,num) => dispatch(transferAmount(user, num))
 
   }
 }

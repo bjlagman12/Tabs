@@ -2,49 +2,44 @@ import React from 'react';
 import styled from 'styled-components';
 
 const payUser = ({ pay, amount, amountInput, sendAmount }) => (
-  <div>
+  <PayUser>
     <div>
-      Pay {pay.name} ${amount}
+      Pay {pay.name.toUpperCase()} ${amount}
     </div>
-    <input type='number' 
+    <MoneyInput 
+      maxLength="7"
+      type='text'
       onChange={e => amountInput(e.target.value)}
     />
-    <input
+    <SubmitInput
       type='submit'
       value='submit'
-      onClick={() => sendAmount(amount)}
+      onClick={() => sendAmount(pay,amount)}
     />
-  </div>
+  </PayUser>
 );
 
 export default payUser;
 
+const PayUser = styled.div`
+  background-color: #70acba;
+  padding: 20px;
+  margin: 20px;
+  border: solid black 2px;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  color: aliceblue;
+`;
 
-// class payUser extends React.Component {
-//   constructor(props){
-//     super(props)
-//     this.handleSubmit = this.handleSubmit.bind(this)
-//   }
-//   handleSubmit(){
-//     console.log('test')
-//   }
-//   render(){
-//     return(
-//       <div>
-//       <div>
-//         Pay {this.props.pay.name} ${this.props.amount}
-//       </div>
-//       <input type='number' 
-//         onChange={e => this.props.amountInput(e.target.value)}
-//       />
-//       <input
-//         type='submit'
-//         value='submit'
-//         onClick={() => this.handleSubmit()}
-//       />
-//     </div>
-//     )
-//   }
-// }
+const MoneyInput = styled.input`
+  padding: 15px;
+  margin: 10px;
+  font-size: 20px;
+`;
 
-// export default payUser;
+const SubmitInput = styled.input`
+padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+`

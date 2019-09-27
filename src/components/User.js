@@ -8,7 +8,7 @@ const User = ({ user, payUser }) => (
       Name: {user.name}
     </div>
     <div>
-      Money: {user.money}
+      email: {user.email}
     </div>
   </EachUser>
 )
@@ -16,5 +16,10 @@ const User = ({ user, payUser }) => (
 export default User
 
 const EachUser = styled.div`
-  padding: 10px
+  padding: 10px;
+  border: solid black 1px;
+  background: #fafafa;
+  margin: 12px;
+  border-radius: 5px;
+  box-shadow: 3px 2px 5px 0px #00000070;
 `

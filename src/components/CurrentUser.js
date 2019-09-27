@@ -12,7 +12,13 @@ export default CurrentUser;
 
 
 const CurrentUserSum = styled.div`
-  background-color: beige;
+  background-color: #70acba;
   border: solid black 2px;
-  padding: 10px
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  font-size: 35px;
+  font-weight: 600;
+  color: aliceblue;
+  box-shadow: 3px 3px 16px 1px #00000078;
 `

@@ -7,7 +7,7 @@ export const updateUser = newUser => {
   };
 };
 
-export const AMOUNT_USER = 'changeAmount'
+export const AMOUNT_USER = 'changeAmount';
 
 export const updateAmount = num => {
   return {
@@ -16,26 +16,21 @@ export const updateAmount = num => {
   };
 };
 
-export const TRANSFER_AMOUNT = 'changeAmount'
-import sendFunds from '../apiRoute/api'
+export const TRANSFER_AMOUNT = 'changeAmount';
+import sendFunds from '../apiRoute/api';
 
-export const transferAmount = funds => {
+export const transferAmount = (userName, funds) => {
   let obj = {
-    "money": funds
-  }
-  console.log('1', funds)
+    payUser: userName,
+    money: funds
+  };
   return () => {
-    sendFunds( obj, (data) => {
-      // return { type: 'VIDEO' };
+    sendFunds(obj, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        // return { type: 'VIDEO' };
+      }
     });
-  }; 
-}
-
-
-
-//   console.log(funds, 'this is the amounts from fund')
-//   return {
-//     type: TRANSFER_AMOUNT,
-//     amount: funds
-//   };
-// };
+  };
+};

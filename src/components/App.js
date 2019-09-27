@@ -18,6 +18,7 @@ const App = () => (
 export default App;
 
 const Body = styled.div`
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   display: flex;
   justify-content: center
 `
