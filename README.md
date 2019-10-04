@@ -15,4 +15,3 @@ npm install
 Start the server locally. Server will be listening on port 3000 
 ```
 npm start
-```

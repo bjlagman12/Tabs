@@ -31,7 +31,9 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.3",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "synapsenode": "^1.2.3",
+    "synapsepay": "^0.12.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
