@@ -1,4 +1,5 @@
 require('dotenv').config();
+const request = require('request')
 
 const SynapsePay = require('synapsepay');
 const Clients = SynapsePay.Clients;
@@ -61,10 +62,9 @@ let createUser = (
 // Get User
 let getUser = cb => {
   let options = {
-    _id: '5d8a9ef714c7fa73f35c3c58',
-    fingerprint: 'null',
     ip_address: Helpers.getUserIP(),
-    full_dehydrate: 'yes' //optional
+    fingerprint: 'null',
+    _id: '5d8a9ef714c7fa73f35c3c58',
   };
   Users.get(client, options, (err, userInfo) => {
     if (err) {
@@ -93,20 +93,56 @@ let getAllUser = cb => {
   });
 };
 
-
-let getAllNodes = () => {
-  Nodes.get(
-    user,
-    {
-      _id: NODE_ID,
-      full_dehydrate: 'yes' //optional
-    },
-    function(err, nodeResponse) {
-      console.log(nodeResponse, 'node shit')
-      // error or node object
-      // node = nodeResponse;
+let getAllNodes = (user, cb) => {
+  Nodes.get(user, null, (err, nodeRes) => {
+    if (err) {
+      cb(err);
+    } else {
+      console.log(nodeRes);
+      cb(null, nodeRes);
     }
-  );
-  
+  });
+};
+
+let getOauthkey = (userId) => {
+
+  let option = {
+    url: `https://uat-api.synapsefi.com/v3.1/oauth/${userId}`,
+    headers: {
+      'X-SP-GATEWAY': `${process.env.CLIENT_ID}|${process.env.CLIENT_SECRET}`,
+      'X-SP-USER-IP':'73.162.88.117',
+      'X-SP-USER': `|${process.env.CLIENT_ID}`,
+      'Content-Type':'application/json'
+    }
+  };
+
+  request(option, () => {
+    
+  })
+
+
+
 }
 
+
+
+
+
+var getData = () => {
+  getUser((err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data.json.refresh_token, 'data from get user');
+      // getAllNodes(data, (err, nodeRes) => {
+      //   if (err) {
+      //     console.log(err, 'err');
+      //   } else {
+      //     console.log(nodeRes, 'success');
+      //   }
+      // });
+    }
+  });
+};
+
+getData();
