@@ -1,5 +1,5 @@
 require('dotenv').config();
-const request = require('request')
+const request = require('request');
 
 const SynapsePay = require('synapsepay');
 const Clients = SynapsePay.Clients;
@@ -64,7 +64,7 @@ let getUser = cb => {
   let options = {
     ip_address: Helpers.getUserIP(),
     fingerprint: 'null',
-    _id: '5d8a9ef714c7fa73f35c3c58',
+    _id: '5d8a9ef714c7fa73f35c3c58'
   };
   Users.get(client, options, (err, userInfo) => {
     if (err) {
@@ -104,36 +104,51 @@ let getAllNodes = (user, cb) => {
   });
 };
 
-let getOauthkey = (userId) => {
-
-  let option = {
-    url: `https://uat-api.synapsefi.com/v3.1/oauth/${userId}`,
-    headers: {
-      'X-SP-GATEWAY': `${process.env.CLIENT_ID}|${process.env.CLIENT_SECRET}`,
-      'X-SP-USER-IP':'73.162.88.117',
-      'X-SP-USER': `|${process.env.CLIENT_ID}`,
-      'Content-Type':'application/json'
-    }
+let getOauthkeyMFA = (userInfo, step, phoneNumbers, pin) => {
+  let url = `https://uat-api.synapsefi.com/v3.1/oauth/${userInfo.id}`;
+  let headers = {
+    'X-SP-GATEWAY': `${process.env.CLIENT_ID}|${process.env.CLIENT_SECRET}`,
+    'X-SP-USER-IP': '73.162.88.117',
+    'X-SP-USER': `|${process.env.CLIENT_ID}`,
+    'Content-Type': 'application/json'
+  };
+  let form = {
+    refresh_token: userInfo.refreshToken,
   };
 
-  request(option, () => {
-    
-  })
-
-
-
-}
-
-
-
+  if (step === 'validateMFA') {
+    form['phone_number'] = phoneNumbers
+  } else if (step === 'inputPin') {
+    form['validation_pin'] = pin
+  }
+  let formData = JSON.stringify(form);
+  request.post(
+    {
+      url,
+      body: formData,
+      headers
+    },
+    (err, res) => {
+      if (err) {
+        console.log(err, 'error');
+      } else {
+        console.log(res.body, 'res');
+      }
+    }
+  );
+};
 
 
 var getData = () => {
+  let userInfo = {};
   getUser((err, data) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(data.json.refresh_token, 'data from get user');
+      userInfo['id'] = data.json._id;
+      userInfo['refreshToken'] = data.json.refresh_token;
+      getOauthkeyMFA(userInfo, 'validateMFA', '9254818470');
+      // console.log(userInfo, 'data from get user');
       // getAllNodes(data, (err, nodeRes) => {
       //   if (err) {
       //     console.log(err, 'err');
