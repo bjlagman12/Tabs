@@ -60,7 +60,7 @@ let createUser = (
 };
 
 // Get User
-let getUser = cb => {
+let getUser = (user_id, cb) => {
   let options = {
     ip_address: Helpers.getUserIP(),
     fingerprint: 'null',
@@ -87,25 +87,13 @@ let getAllUser = cb => {
     if (err) {
       cb(err);
     } else {
-      console.log(allUsers);
       cb(null, allUsers);
     }
   });
 };
 
-let getAllNodes = (user, cb) => {
-  Nodes.get(user, null, (err, nodeRes) => {
-    if (err) {
-      cb(err);
-    } else {
-      console.log(nodeRes);
-      cb(null, nodeRes);
-    }
-  });
-};
-
-let getOauthkeyMFA = (userInfo, step, phoneNumbers, pin) => {
-  let url = `https://uat-api.synapsefi.com/v3.1/oauth/${userInfo.id}`;
+let getOauthkeyMFA = (userInfo, step, phoneNumbers, pin, cb) => {
+  let url = `https://uat-api.synapsefi.com/v3.1/oauth/${userInfo.userLink.json._id}`;
   let headers = {
     'X-SP-GATEWAY': `${process.env.CLIENT_ID}|${process.env.CLIENT_SECRET}`,
     'X-SP-USER-IP': '73.162.88.117',
@@ -130,13 +118,42 @@ let getOauthkeyMFA = (userInfo, step, phoneNumbers, pin) => {
     },
     (err, res) => {
       if (err) {
-        console.log(err, 'error');
+        cb(err)
       } else {
-        console.log(res.body, 'res');
+        var data = {
+          oAuthData: res.body,
+          ip_address: headers['X-SP-USER-IP'],
+          links: userInfo.userLink,
+        }
+        cb(null, data)
       }
     }
   );
 };
+
+
+let getUsersNodes = (user) => {
+  let userInfo = {
+    client: user.links.client.client_id,
+    ip_address: user.ip_address,
+    fingerprint: user.links.fingerprint,
+    oauth_key: user.oAuthData.oauth_key,
+    json: user.links.json
+  }
+
+  Nodes.get(
+    userInfo,
+    null,
+    (err, nodesRes) => {
+      if (err) {
+        console.log(err, 'err')
+      } else {
+        console.log(nodesRes, 'success')
+      }
+    }
+  )
+}
+
 
 
 var getData = () => {
@@ -145,19 +162,24 @@ var getData = () => {
     if (err) {
       console.log(err);
     } else {
-      userInfo['id'] = data.json._id;
       userInfo['refreshToken'] = data.json.refresh_token;
-      getOauthkeyMFA(userInfo, 'validateMFA', '9254818470');
-      // console.log(userInfo, 'data from get user');
-      // getAllNodes(data, (err, nodeRes) => {
-      //   if (err) {
-      //     console.log(err, 'err');
-      //   } else {
-      //     console.log(nodeRes, 'success');
-      //   }
-      // });
+      userInfo['userLink'] = data;
+      getOauthkeyMFA(userInfo, null, '9254818470', null, (err, data) => {
+        if (err) {
+          console.log(err)
+        } else {
+          getUsersNodes(data)
+        }
+      });
     }
   });
 };
 
-getData();
+// getData();
+
+
+module.exports = {
+  getUser,
+  getAllUser,
+  getOauthkeyMFA
+}
