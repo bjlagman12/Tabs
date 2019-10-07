@@ -105,9 +105,10 @@ app.post('/getoAuthKey', (req, res) => {
 });
 
 // VIEW BALANCE FOR A USER **HARD CODED TO VIEW ONE USER
-app.get('/viewBalance', (req, res) => {
+app.get('/viewBalance/:user_id', (req, res) => {
   let userInfo = {};
-  synapse.getUser(null, (err, data) => {
+  let user_id = req.params.user_id;
+  synapse.getUser(user_id, (err, data) => {
     if (err) {
       res.statusCode = 404;
       res.send(err);
@@ -162,14 +163,13 @@ app.get('/viewTransactions/:user_id', (req, res) => {
           res.statusCode = 404;
           res.send(err);
         } else {
-          console.log(JSON.parse(data.oAuthData).oauth_key);
           synapse.getAllTrans(data, (err, data) => {
             if (err) {
               res.statusCode = 404;
               res.send(err);
             } else {
               res.statusCode = 202;
-              console.log(data);
+              res.send(data)
             }
           });
         }
@@ -178,8 +178,18 @@ app.get('/viewTransactions/:user_id', (req, res) => {
   });
 });
 
+// MAKE A PAYMENT TO A USER ** ROUTE NOT COMPLETE
 app.get('/makeTrans', (req, res) => {
-  
+  // DEPENDING WHERE/HOW I SAVE MY INFO
+  // I CAN PASS IN MY INFO DIRECTLY IN THIS THE MAKE TRANSACTION FUNCTION
+  synapse.makeTrans((err, data) => {
+    if (err) {
+      res.statusCode = 404
+    } else {
+      res.statusCode = 202
+    }
+  })
+
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

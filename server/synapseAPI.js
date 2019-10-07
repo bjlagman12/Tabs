@@ -175,10 +175,51 @@ let getAllTrans = (eachNode, cb) => {
   });
 };
 
+// MAKE A TRANSACTION TO A USER
+let makeTrans = (payTo, cb) => {
+  const createPayload = {
+    to: {
+      type: 'SYNAPSE-US',
+      id: payTo
+    },
+    amount: {
+      amount: 1.10,
+      currency: 'USD'
+    },
+    extra: {
+      supp_id: '1283764wqwsdd34wd13212',
+      note: 'Deposit to bank account',
+      webhook: 'http://requestb.in/q94kxtq9',
+      process_on: 1,
+      ip: Helpers.getUserIP()
+    },
+    fees: [{
+      fee: 1.00,
+      note: 'Facilitator Fee',
+      to: {
+        id: FEE_TO_NODE_ID
+      }
+    }]
+  };
+  Transactions.create(
+    node,
+    createPayload,
+    (err, transactionResp) => {
+      if (err) {
+        cb(err)
+      } else {
+        cb(transactionResp)
+      }
+    }
+  );
+
+}
+
 module.exports = {
   getUser,
   getAllUser,
   getOauthkeyMFA,
   getAllUsersNodes,
-  getAllTrans
+  getAllTrans,
+  makeTrans
 };
