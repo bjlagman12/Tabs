@@ -31,6 +31,7 @@ app.get('/getUsers/:user_id', (req, res) => {
       res.send(err);
     } else {
       res.statusCode = 200;
+      console.log(data, 'data from getUsers')
       res.send(data);
     }
   });
@@ -46,6 +47,7 @@ app.post('/getvalidationPIN/:user_id', (req, res) => {
       res.statusCode = 404;
       res.send(err);
     } else {
+      // console.log(data)
       userInfo['refreshToken'] = data.json.refresh_token;
       userInfo['userLink'] = data;
       synapse.getOauthkeyMFA(
@@ -74,10 +76,11 @@ app.post('/getvalidationPIN/:user_id', (req, res) => {
 });
 
 // AFTER YOU RECEIVED THE MFA CODE THIS IS GRANT ACCESS TO OAUTH KEY
-app.post('/getoAuthKey', (req, res) => {
+app.post('/getoAuthKey/:user_id', (req, res) => {
+  let user_id = req.params.user_id;
   let pin = req.body.pin;
   let userInfo = {};
-  synapse.getUser(null, (err, data) => {
+  synapse.getUser(user_id, (err, data) => {
     if (err) {
       res.statusCode = 404;
       res.send(err);
